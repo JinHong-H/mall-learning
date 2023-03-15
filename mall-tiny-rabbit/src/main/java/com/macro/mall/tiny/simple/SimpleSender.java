@@ -15,6 +15,7 @@
  */
 package com.macro.mall.tiny.simple;
 
+import cn.hutool.core.util.RandomUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -34,7 +35,7 @@ public class SimpleSender {
 
 	public void send() {
 		String message = "Hello World!";
-		this.template.convertAndSend(queueName, message);
+		this.template.convertAndSend(queueName, RandomUtil.randomBoolean() ? message : 100);
 		LOGGER.info(" [x] Sent '{}'", message);
 	}
 

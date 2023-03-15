@@ -33,4 +33,10 @@ public class SimpleReceiver {
         LOGGER.info(" [x] Received '{}'", in);
     }
 
+
+    @RabbitHandler
+    public void receiveNumber(Integer in) {
+        LOGGER.info(" [x] Received number '{}'", in);
+    }
+
 }
